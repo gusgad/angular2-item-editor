@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { ItemService } from '../item.service';
 
@@ -36,7 +37,8 @@ export class ItemEditComponent implements OnInit {
     constructor(
         private itemService: ItemService,
         private route: ActivatedRoute,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private snackBar: MatSnackBar
     ) {
         this.rForm = this.fb.group({
             'camp_cpc': [this.campCPC, Validators.required],
@@ -61,6 +63,13 @@ export class ItemEditComponent implements OnInit {
 
     editItem(item) {
         this.itemService.editItem(this.a, item);
+        this.snackBar.open('Item successfully edited!', 'Close', {
+            duration: 5000,
+        });
+    }
+
+    isNumber(val) {
+        return typeof val === 'number';
     }
 
 }

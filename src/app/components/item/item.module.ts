@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ItemComponent } from './item.component';
 import { ItemListComponent } from './item-list/item-list.component';
@@ -37,6 +38,7 @@ import { ItemNavComponent } from './item-nav/item-nav.component';
     MatSelectModule,
     MatDatepickerModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     RouterModule.forRoot(
         [
             { path: '', redirectTo: '/items', pathMatch: 'full' },

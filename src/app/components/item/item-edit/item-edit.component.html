@@ -2,13 +2,22 @@
     <a mat-stroked-button color="primary" routerLink="/items">Back</a>
     <form [formGroup]="rForm" (ngSubmit)="editItem(rForm.value)">
         <h2>Editing item "{{ a }}":</h2>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="cpc-container">
             <input matInput type="number" maxlength="4" step="0.001" [(ngModel)]="campCPC" formControlName="camp_cpc" placeholder="Campaign CPC" required>
+            <button mat-button *ngIf="campCPC" matSuffix mat-icon-button aria-label="Clear" (click)="campCPC=''">
+                <i class="material-icons">close</i>
+            </button>
+            <mat-error *ngIf="!campCPC">
+                This field only accepts numbers and can not be empty
+            </mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="date-container">
             <input matInput [matDatepicker]="picker" [(ngModel)]="date" formControlName="date" placeholder="Choose a date" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="!date">
+                    This field only accepts a valid date and can not be empty
+            </mat-error>
         </mat-form-field>
         <div class="checkbox-container">
             <label for="checkbox">Freeclick:</label>
@@ -29,6 +38,7 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
+
         <button class="submit" type="submit" mat-raised-button color="accent" [disabled]="!rForm.valid">Confirm</button>
     </form>
 </div>

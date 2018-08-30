@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +30,7 @@ export class ItemService {
             const serializedState = JSON.stringify(data);
             sessionStorage.setItem('data', serializedState);
         } catch (err) {
-            console.log('Error when setting the state.');
+            console.log('Error when setting the storage.');
             return false;
         }
     }
@@ -45,7 +44,7 @@ export class ItemService {
                 return JSON.parse(serializedState);
             }
         } catch (ere) {
-            console.log('Error when retrieving the state.');
+            console.log('Error when retrieving the storage.');
             return false;
         }
     }
