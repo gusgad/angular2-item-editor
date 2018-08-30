@@ -27,6 +27,7 @@ export class ItemListComponent implements OnInit {
               console.log(data);
               this.items$ = data;
               this.loading = false;
+              this.itemService.saveToSessionStorage(data);
             }
         );
     }, 1500);
