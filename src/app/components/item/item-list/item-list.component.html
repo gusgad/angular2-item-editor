@@ -1,0 +1,40 @@
+<main class="item-list">
+
+    <mat-progress-spinner *ngIf="loading" class="spinner" color="primary" mode="indeterminate"></mat-progress-spinner>
+
+    <table *ngIf="!loading" mat-table matSort [dataSource]="items$" class="list-table mat-elevation-z8">
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="camp_cpc">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <span class="header-content">
+                    <i class="material-icons">money</i>
+                    <h3>Cost per Click</h3>
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element">€ {{element.camp_cpc}}</td>
+        </ng-container>
+        
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <span class="header-content">
+                    <i class="material-icons">access_time</i>
+                    <h3>Date</h3>
+                </span>
+            </th>
+            <td mat-cell *matCellDef="let element">{{element.date | date:'dd.MM.yyyy - HH:mm'}}</td>
+        </ng-container>
+        
+        <!-- Edit Column -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <a mat-stroked-button color="primary" [routerLink]="['edit', element.a]" [queryParams]="{camp_cpc: element.camp_cpc, date: element.date, freeclick: element.freeclick, network: element.network, plista_product: element.PlistaProduct}">Edit</a>
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</main>

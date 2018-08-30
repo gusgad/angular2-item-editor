@@ -1,0 +1,34 @@
+<div class="item-edit">
+    <a mat-stroked-button color="primary" routerLink="/items">Back</a>
+    <form [formGroup]="rForm" (ngSubmit)="editItem(rForm.value)">
+        <h2>Editing item "{{ a }}":</h2>
+        <mat-form-field class="example-full-width">
+            <input matInput type="number" maxlength="4" step="0.001" [(ngModel)]="campCPC" formControlName="camp_cpc" placeholder="Campaign CPC" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="date" formControlName="date" placeholder="Choose a date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="checkbox-container">
+            <label for="checkbox">Freeclick:</label>
+            <mat-checkbox id="checkbox" [checked]="freeclick"></mat-checkbox>
+        </div>
+        <div class="radio-container">
+            <h3>Network:</h3>
+            <mat-radio-group [value]="network">
+                <mat-radio-button value="a">a</mat-radio-button>
+                <mat-radio-button value="b">b</mat-radio-button>
+                <mat-radio-button value="c">c</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-form-field>
+            <mat-select [value]="plistaProduct" placeholder="Product category" required>
+                <mat-option [value]="productCategory.value" *ngFor="let productCategory of productCategories">
+                {{ productCategory.title }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="submit" type="submit" mat-raised-button color="accent" [disabled]="!rForm.valid">Confirm</button>
+    </form>
+</div>
