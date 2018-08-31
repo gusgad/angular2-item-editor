@@ -1,13 +1,15 @@
 .item-list {
     width: 100%;
+    height: 100%;
     max-width: 1800px;
-    margin: 3% 0;
+    margin: 3% auto;
 }
 
 .spinner {
     width: 40px;
     height: 40px;
-    margin: auto;
+    margin: 0 auto;
+    margin-top: 20%;
     position: absolute;
     top: 0;
     left: 0;
@@ -25,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .list-table .header-content i {

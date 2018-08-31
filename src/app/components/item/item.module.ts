@@ -42,8 +42,8 @@ import { ItemNavComponent } from './item-nav/item-nav.component';
     RouterModule.forRoot(
         [
             { path: '', redirectTo: '/items', pathMatch: 'full' },
-            { path: 'items', component: ItemListComponent },
-            { path: 'items/edit/:a', component: ItemEditComponent },
+            { path: 'items', component: ItemListComponent, data: { depth: 1 }},
+            { path: 'items/edit/:a', component: ItemEditComponent, data: { depth: 2 }},
         ]
     )
   ],

@@ -1,2 +1,4 @@
 <app-item-nav></app-item-nav>
-<router-outlet></router-outlet>
+<div class="item-router-container" [@routeAnimation]="getDepth(myOutlet)">
+    <router-outlet #myOutlet="outlet"></router-outlet>
+</div>
