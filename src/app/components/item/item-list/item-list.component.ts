@@ -1,35 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ItemService } from '../item.service';
 
 @Component({
-  selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+    selector: 'app-item-list',
+    templateUrl: './item-list.component.html',
+    styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
 
-  loading = true;
+    loading = true;
 
-  items$: Object;
-  camp_cpc: number;
-  date: string;
-  total = 100;
-  displayedColumns: string[] = ['camp_cpc', 'date', 'edit'];
+    items$: object;
+    camp_cpc: number;
+    date: string;
+    displayedColumns: string[] = ['camp_cpc', 'date', 'edit'];
 
-  constructor(private itemService: ItemService) { }
+    constructor(private itemService: ItemService) { }
 
-  ngOnInit() {
-    setTimeout(() => {
-        this.itemService.getItems().subscribe(
-            data => {
-              console.log(data);
-              this.items$ = data;
-              this.loading = false;
-              this.itemService.saveToSessionStorage(data);
-            }
-        );
-    }, 1500);
-  }
+    ngOnInit() {
+        // let's set a timeout to imitate a real request with a latency
+        setTimeout(() => {
+            this.itemService.getItems().subscribe(
+                data => {
+                    this.items$ = data;
+                    this.loading = false;
+                    this.itemService.saveToSessionStorage(data);
+                }
+            );
+        }, 1500);
+    }
 
 }

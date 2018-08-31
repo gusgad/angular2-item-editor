@@ -6,14 +6,13 @@ import { MatSnackBar } from '@angular/material';
 import { ItemService } from '../item.service';
 
 @Component({
-  selector: 'app-item-edit',
-  templateUrl: './item-edit.component.html',
-  styleUrls: ['./item-edit.component.css']
+    selector: 'app-item-edit',
+    templateUrl: './item-edit.component.html',
+    styleUrls: ['./item-edit.component.css']
 })
 export class ItemEditComponent implements OnInit {
 
-    a: number;
-    queryData: any;
+    a: number; // used as an item ID but the "a" variable name is taken from the actual json key therefore kept as it is
     rForm: FormGroup;
     campCPC: number;
     date: string;
@@ -21,6 +20,7 @@ export class ItemEditComponent implements OnInit {
     network: string;
     plistaProduct: string;
 
+    // mocked Plista Product categories
     productCategories: any[] = [
         { value: 'Product 1'},
         { value: 'Product 2'},
@@ -55,9 +55,9 @@ export class ItemEditComponent implements OnInit {
         this.route.queryParamMap.subscribe(param => {
             this.campCPC = Number(param.get('camp_cpc'));
             this.date = String(param.get('date'));
-            this.freeclick = Boolean(JSON.parse(param.get('freeclick')));
+            this.freeclick = Boolean(JSON.parse(param.get('freeclick'))); // a little trick to convert string to a valid boolean type
             this.network = String(param.get('network'));
-            this.plistaProduct = param.get('plista_product');
+            this.plistaProduct = String(param.get('plista_product'));
         });
     }
 
@@ -68,6 +68,7 @@ export class ItemEditComponent implements OnInit {
         });
     }
 
+    // helper func to check number fields for validity
     isNumber(val) {
         return typeof val === 'number';
     }

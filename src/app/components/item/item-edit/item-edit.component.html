@@ -3,6 +3,8 @@
     <form [formGroup]="rForm" (ngSubmit)="editItem(rForm.value)">
         <div class="form-wrapper">
             <h2>Editing item "{{ a }}":</h2>
+
+            <!-- CPC Input -->
             <mat-form-field class="cpc-container">
                 <input matInput type="number" maxlength="4" step="0.001" [(ngModel)]="campCPC" formControlName="camp_cpc" placeholder="Campaign CPC" required>
                 <button mat-button *ngIf="campCPC" matSuffix mat-icon-button aria-label="Clear" (click)="campCPC=''">
@@ -12,6 +14,8 @@
                     This field only accepts numbers and can not be empty
                 </mat-error>
             </mat-form-field>
+
+            <!-- Date Input -->
             <mat-form-field class="date-container">
                 <input matInput [matDatepicker]="picker" [(ngModel)]="date" formControlName="date" placeholder="Choose a date" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -20,10 +24,14 @@
                         This field only accepts a valid date and can not be empty
                 </mat-error>
             </mat-form-field>
+
+            <!-- Freeclick Input -->
             <div class="checkbox-container">
                 <label for="checkbox">Freeclick:</label>
                 <mat-checkbox id="checkbox" formControlName="freeclick" [(ngModel)]="freeclick"></mat-checkbox>
             </div>
+
+            <!-- Network Input -->
             <div class="radio-container">
                 <h3>Network:</h3>
                 <mat-radio-group formControlName="network" [(ngModel)]="network">
@@ -32,6 +40,8 @@
                     <mat-radio-button value="c">c</mat-radio-button>
                 </mat-radio-group>
             </div>
+
+            <!-- PLista Product Input -->
             <mat-form-field>
                 <mat-select formControlName="PlistaProduct" [(ngModel)]="plistaProduct" placeholder="Product category" required>
                     <mat-option [value]="productCategory.value" *ngFor="let productCategory of productCategories">

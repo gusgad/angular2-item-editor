@@ -1,3 +1,4 @@
+/* let's declare a root size and use rems afterwards */
 *:root {
     font-size: 10px;
     font-family: 'Roboto', sans-serif !important;

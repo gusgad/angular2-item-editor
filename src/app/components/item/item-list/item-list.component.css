@@ -9,9 +9,8 @@
     width: 40px;
     height: 40px;
     margin: 0 auto;
-    margin-top: 20%;
     position: absolute;
-    top: 0;
+    top: 200px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -47,4 +46,10 @@
     background: rgb(63, 81, 181);
     color: #FFFFFF;
     border-radius: 3px;
+}
+
+@media screen and (max-width: 400px) {
+    .spinner {
+        top: 150px;
+    }
 }
