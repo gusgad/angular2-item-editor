@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
 import { ItemService } from '../item.service';
-import { ItemInterface } from '../item';
+import { ItemInterface } from '../item.interface';
 
 @Component({
     selector: 'app-item-edit',

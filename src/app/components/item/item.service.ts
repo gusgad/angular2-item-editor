@@ -12,7 +12,7 @@ export class ItemService {
     // Get items from "API" or sessionStorage
     getItems(): Observable<any[]> {
         return this.loadFromSessionStorage() === false ?
-        this.http.get('http://localhost:4200/assets/data.json') : of(this.loadFromSessionStorage());
+        this.http.get(`${window.location.protocol}//${window.location.host}/assets/data.json`) : of(this.loadFromSessionStorage());
     }
 
     // Editing a specific item
