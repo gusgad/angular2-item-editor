@@ -4,11 +4,13 @@
 
 A two-page SPA for displaying items (or rather statistics) as a table list and editing one at a time. Also:
 * has an ability to persist the data in Session Storage to imitate a real database modification
-* uses Angular Material
+* HTML template built with Angular Material
+* uses Observables, Reactive Forms and Angular Animations
 
 Current limitations:
 * no tests included
-* item table has no pagination due to a complex and weird nature of Angular Material :D 
+* item table has no pagination due to a complex and weird nature of Angular Material :D
+* date editing does not affect the time and defaults to 00:00
 
 ## How to run
 
