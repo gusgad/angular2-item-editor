@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
 import { ItemService } from '../item.service';
+import { ItemInterface } from '../item';
 
 @Component({
     selector: 'app-item-edit',
@@ -61,7 +62,7 @@ export class ItemEditComponent implements OnInit {
         });
     }
 
-    editItem(item) {
+    editItem(item: ItemInterface): void {
         this.itemService.editItem(this.a, item);
         this.snackBar.open('Item successfully edited!', 'Close', {
             duration: 5000,
@@ -69,7 +70,7 @@ export class ItemEditComponent implements OnInit {
     }
 
     // helper func to check number fields for validity
-    isNumber(val) {
+    isNumber(val): boolean {
         return typeof val === 'number';
     }
 

@@ -106,6 +106,10 @@ form .form-wrapper .submit {
     form .form-wrapper {
         width: 90%;
     }
+
+    form .form-wrapper h2 {
+        line-height: 30px;
+    }
 }
 
 @media screen and (max-width: 440px) {

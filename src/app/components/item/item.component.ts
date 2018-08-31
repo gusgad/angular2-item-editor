@@ -38,7 +38,7 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
 export class ItemComponent {
 
     // Get the depth from route date for specific animation layers
-    getDepth(outlet) {
+    getDepth(outlet): number {
         return outlet.activatedRouteData['depth'];
     }
 
