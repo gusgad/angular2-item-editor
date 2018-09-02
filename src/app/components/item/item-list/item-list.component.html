@@ -2,11 +2,11 @@
 
     <mat-progress-spinner *ngIf="loading" class="spinner" color="primary" mode="indeterminate"></mat-progress-spinner>
 
-    <table *ngIf="!loading" mat-table matSort [dataSource]="items$" class="list-table mat-elevation-z8">
+    <table *ngIf="!loading" mat-table [dataSource]="dataSource$" class="list-table mat-elevation-z8">
 
         <!-- Cost Column -->
         <ng-container matColumnDef="camp_cpc">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <th mat-header-cell *matHeaderCellDef>
                 <span class="header-content">
                     <i class="material-icons">money</i>
                     <h3>Cost per Click</h3>
@@ -37,4 +37,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <mat-paginator *ngIf="!loading" [pageSizeOptions]="[15, 30]" showFirstLastButtons></mat-paginator>
+
 </main>
