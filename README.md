@@ -2,7 +2,7 @@
 
 [Live demo](https://angular2-item-editor.firebaseapp.com)
 
-A two-page SPA for displaying items (or rather statistics) as a table list and editing one at a time. Also:
+A two-view SPA for displaying items (or rather statistics) as a table list and editing one at a time. Also:
 * has an ability to persist the data in Session Storage to imitate a real database modification
 * HTML template built with Angular Material
 * uses Observables, Reactive Forms and Angular Animations
