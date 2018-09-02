@@ -9,7 +9,6 @@ A two-page SPA for displaying items (or rather statistics) as a table list and e
 
 Current limitations:
 * no tests included
-* item table has no pagination due to a complex and weird nature of Angular Material :D
 * date editing does not affect the time and defaults to 00:00
 
 ## How to run
